@@ -2,13 +2,17 @@
 function dy = rocketDynamics(t,y)
     g = 9.81; % Acceleration due to gravity
     m = 10; % Mass of the rocket
+    Cd = 0.5; %Drag coefficient
+    A = 2; %Reference area of the rocket
+    rho = 1.2; %Air density
+    v = sqrt(y(4)^2 + y(5)^2 + y(6)^2); %Velocity
     Fthrust = 20; % Thrust force of the rocket
-    Fdrag = 0.1; % Drag force on the rocket
+    Fdrag = 0.5 * Cd * A * rho * v^2; % Drag force on the rocket
     theta = pi/4; % Angle of thrust vector in x-y plane
     phi = pi/4; % Angle of thrust vector in y-z plane
-    dy = zeros(6,1); % Initialize output
     
-   
+    
+    dy = zeros(6,1); % Initialize output
     dy(1) = y(4); % x position
     dy(2) = y(5); % y position
     dy(3) = y(6); % z position
