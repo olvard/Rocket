@@ -1,0 +1,15 @@
+function rocketMass = Massa(t)
+
+tankMass = 2;
+propellantMass = 5;
+masslossPerSecond = 1451.5;
+
+propellantMass = propellantMass - t * masslossPerSecond;
+
+if (propellantMass < 10)
+    rocketMass = 25600;
+end
+
+end
+
+
