@@ -5,7 +5,7 @@ function dy = rocketDynamics(t, y)
     Cd = 0.5; % Drag coefficient
     A = 2; % Reference area of the rocket
     
-    rho = 1.2; % Air dennsity
+    rho = descendingAirDensity(y(3));
     
     v = sqrt(y(4)^2 + y(5)^2 + y(6)^2); % Velocity
     Fthrust = 7600000; % Thrust force of the rocket
