@@ -1,18 +1,23 @@
 % Define function for rocket dynamics
-function dy = rocketDynamics(t,y)
+function dy = rocketDynamics(t, y)
     g = 9.81; % Acceleration due to gravity
-    m = 10; % Mass of the rocket
-    Fthrust = 20; % Thrust force of the rocket
-    Fdrag = 0.1; % Drag force on the rocket
-    theta = pi/4; % Angle of thrust vector in x-y plane
-    phi = pi/4; % Angle of thrust vector in y-z plane
-    dy = zeros(6,1); % Initialize output
+    m = 550000; % Mass of the rocket
+    Cd = 0.5; % Drag coefficient
+    A = 2; % Reference area of the rocket
     
-   
-    dy(1) = y(4); % x position
-    dy(2) = y(5); % y position
-    dy(3) = y(6); % z position
-    dy(4) = (Fthrust * cos(theta) - Fdrag * y(4)) / m; % x velocity
-    dy(5) = (Fthrust * sin(theta) * cos(phi) - Fdrag * y(5) - m * g) / m; % y velocity
-    dy(6) = (Fthrust * sin(theta) * sin(phi) - Fdrag * y(6)) / m; % z velocity
+    rho = 1.2; % Air dennsity
+    
+    v = sqrt(y(4)^2 + y(5)^2 + y(6)^2); % Velocity
+    Fthrust = 7600000; % Thrust force of the rocket
+    Fdrag = 0.5 * Cd * A * rho * v^2; % Drag force on the rocket
+    theta = 0; % Angle of thrust vector in x-y plane
+    phi = 0; % Angle of thrust vector in y-z plane
+  
+    dy = zeros(6,1); % Initialize output
+    dy(1) = y(4); % x velocity
+    dy(2) = y(5); % y velocity
+    dy(3) = y(6); % z velocity
+    dy(4) = (Fthrust * sin(theta) * cos(phi) - Fdrag * y(4)) / m; % x acceleration
+    dy(5) = (Fthrust * sin(theta) * sin(phi) - Fdrag * y(5)) / m; % y acceleration
+    dy(6) = (Fthrust * cos(theta) - Fdrag * y(6) - m * g) / m; % z acceleration
 end
