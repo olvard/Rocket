@@ -1,7 +1,7 @@
 % Define function for rocket dynamics
 function dy = rocketDynamics(t, y)
     g = 9.81; % Acceleration due to gravity
-    m = mass(t); % Mass of the rocket
+    m = mass(massFuel(t)); % Mass of the rocket
     Cd = 0.5; % Drag coefficient
     A = 17; % Reference area of the rocket
     
