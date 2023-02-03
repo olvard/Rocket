@@ -6,10 +6,11 @@ function dy = rocketDynamics(t, y)
     A = 17; % Reference area of the rocket
     
     rho = descendingAirDensity(y(3));
-    
     v = sqrt(y(4)^2 + y(5)^2 + y(6)^2); % Velocity
-    Fthrust = 7600000; % Thrust force of the rocket
-    Fdrag = 0.5 * Cd * A * rho * v^2; % Drag force on the rocket
+
+    Fthrust = getThrust(y(3));
+    Fdrag = Cd * (A * rho * v^2) / 2; % Drag force on the rocket
+
     theta = 0; % Angle of thrust vector in x-y plane
     phi = 0; % Angle of thrust vector in y-z plane
   

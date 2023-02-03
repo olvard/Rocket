@@ -1,16 +1,17 @@
 % Define function for rocket dynamics
 function dy = rocketDynamics(t, y)
     g = 9.81; % Acceleration due to gravity
-%     m = mass(t); % Mass of the rocket
-    m = 5
+    m = mass(t); % Mass of the rocket
     Cd = 0.5; % Drag coefficient
     A = 17; % Reference area of the rocket
     
     rho = descendingAirDensity(y(3));
     
     v = sqrt(y(4)^2 + y(5)^2 + y(6)^2); % Velocity
-    Fthrust = 7600000; % Thrust force of the rocket
-    Fdrag = 0.5 * Cd * A * rho * v^2; % Drag force on the rocket
+%     Fthrust = 7600000; % Thrust force of the rocket
+    Fthrust = M * V_e + (P_e - P0) * A_e
+    
+    Fdrag = Cd * (A * rho * v^2) / 2; % Drag force on the rocket
     theta = 0; % Angle of thrust vector in x-y plane
     phi = 0; % Angle of thrust vector in y-z plane
   
