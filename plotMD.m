@@ -1,38 +1,40 @@
 function [] = plotMD(y,t)
 
+    temp = length(y);
+
     % Mass
     x = zeros(1,561);
 
-    for i=1:length(x)
+    for i=1:temp
         x(1,i) = mass(massFuel(t(i)));
     end
 
     % Air resistance
     q = zeros(1,561);
 
-    for i=1:length(q)
+    for i=1:temp
         q(1,i) = AirPlotHelpFunc(y(i,:));
     end
 
     % Thrust
      u = zeros(1,561);
 
-    for i=1:length(q)
+    for i=1:temp
         u(1,i) = getThrust(y(i,3));
     end
 
     set(gcf,'Visible','on')
     set(gcf, 'Position', get(0, 'Screensize'));
 
-    subplot(3,2,1);
-    ani1=animatedline('Color','r','LineWidth',2);
+    subplot(4,3,1);
+    ani1=animatedline('Color','blue','LineWidth',2);
     xlabel("Seconds")
     ylabel("m/s")
     title("Velocity over time")
     grid on
     hold off
 
-    subplot(3,2,2);
+    subplot(4,3,2);
     ani2=animatedline('Color','blue','LineWidth',2);
     xlabel("Seconds")
     ylabel("m/s^2")
@@ -40,37 +42,48 @@ function [] = plotMD(y,t)
     grid on
     hold off 
 
-    subplot(3,2,3);
-    ani3=animatedline('Color','black','LineWidth',2);
+    subplot(4,3,4);
+    ani3=animatedline('Color','blue','LineWidth',2);
     xlabel("Seconds")
     ylabel("N")
     title("Drag over time")
     grid on
     hold off 
 
-    subplot(3,2,4);
-    ani4=animatedline('Color','m','LineWidth',2);
+    subplot(4,3,5);
+    ani4=animatedline('Color','blue','LineWidth',2);
     xlabel("Seconds")
     ylabel("KG")
     title("Mass over time")
     grid on
     hold off 
     
-    subplot(3,2,5);
-    ani5=animatedline('Color','m','LineWidth',2);
+    subplot(4,3,7);
+    ani5=animatedline('Color','blue','LineWidth',2);
     xlabel("Seconds")
     ylabel("Thrust")
     title("Thrust change over time")
     grid on
     hold off 
     
-    subplot(3,2,6);  
-    ani6=animatedline('Color','red','LineWidth',15);
-    ani7=animatedline('Color','black','LineWidth',15);
+    subplot(4,3,8);
+    ani6=animatedline('Color','blue','LineWidth',2);
+    xlabel("Seconds")
+    title("Time since launch")
+    grid on
+    hold off 
+    
+    subplot(4,3,[3,6]);  
+    ani7=animatedline('Color','blue','LineWidth',15);
     title("Trajectory 3D")
     grid on
     view(3);
-    zoom(1);
+    hold off 
+    
+    subplot(4,3,[9,12]);  
+    ani8=animatedline('Color','blue','LineWidth',15);
+    title("Trajectory 2D")
+    grid on
     hold off 
     
 for i = 1:length(y)
@@ -96,8 +109,13 @@ for i = 1:length(y)
     addpoints(ani5,t(i),u(i));
     hold off
     
-    addpoints(ani6,y(i+2,1), y(i+2,2), y(i+2,3));
+    addpoints(ani6,t(i),y(3));
+    hold off
+    
     addpoints(ani7,y(i,1), y(i,2), y(i,3));
+    hold off
+    
+    addpoints(ani8,y(i,2), y(i,3));
     hold off
     
     drawnow
