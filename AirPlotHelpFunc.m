@@ -1,4 +1,4 @@
-function Fdrag = air(y)
+function Fdrag = AirPlotHelpFunc(y)
 
     Cd = 0.5; % Drag coefficient
     A = 17; % Reference area of the rocket
