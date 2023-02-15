@@ -8,6 +8,13 @@ function [] = plotMD(y,t)
     for i=1:temp
         x(1,i) = mass(massFuel(t(i)));
     end
+    
+    % Fuel
+    n = zeros(1,561);
+
+    for i=1:temp
+        n(1,i) = massFuel(t(i));
+    end
 
     % Air resistance
     q = zeros(1,561);
@@ -32,6 +39,7 @@ function [] = plotMD(y,t)
 
     set(gcf,'Visible','on')
     set(gcf, 'Position', get(0, 'Screensize'));
+    set(gcf,'name','Falcon 9 - Rocket Simulation','NumberTitle','off')
     
     subplot(4,3,1);
     ani1=animatedline('Color','blue','LineWidth',3);
@@ -83,6 +91,9 @@ function [] = plotMD(y,t)
     subplot(4,3,[3,6]);  
     ani7=animatedline('Color','blue','LineWidth',15);
     title("Trajectory 3D")
+    xlabel("Y")
+    ylabel("X")
+    zlabel("Height, m")
     grid on
     view(3);
     hold off 
@@ -90,6 +101,25 @@ function [] = plotMD(y,t)
     subplot(4,3,[9,12]);  
     ani8=animatedline('Color','blue','LineWidth',15);
     title("Trajectory 2D")
+    xlabel("X")
+    ylabel("Height, m")
+    grid on
+    hold off 
+    
+    subplot(4,3,10);  
+    ani9=animatedline('Color','blue','LineWidth',3);
+    title("Time step iterations")
+    xlabel("Amount of iterations")
+    yticklabels({'',''})
+    ylabel("")
+    grid on
+    hold off 
+    
+    subplot(4,3,11);  
+    ani10=animatedline('Color','blue','LineWidth',3);
+    title("Fuel change over time")
+    xlabel("Seconds")
+    ylabel("KG")
     grid on
     hold off 
     
@@ -123,6 +153,12 @@ for i = 1:length(y)
     hold off
     
     addpoints(ani8,y(i,2), y(i,3));
+    hold off
+    
+    addpoints(ani9,t(i), 1);
+    hold off
+    
+    addpoints(ani10,t(i), n(i));
     hold off
     
     drawnow

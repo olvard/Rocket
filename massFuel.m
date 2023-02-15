@@ -7,7 +7,7 @@ function [m_fuel] = massFuel(t)
     burn_rate = 1451.496; % fuel burn rate in kg/s
     
     % Calculate fuel mass
-    m_fuel = m_initial - burn_rate * t;
+    m_fuel = m_initial - burn_rate;
     
     % Check for negative mass
     if m_fuel < 0
