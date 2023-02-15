@@ -1,0 +1,80 @@
+<deployment-project plugin="plugin.apptool" plugin-version="1.0">
+  <configuration build-checksum="77463952" file="/Users/filiphamrelius/Desktop/Rocket/Falcon 9 - App.prj" location="/Users/filiphamrelius/Desktop/Rocket" name="Falcon 9 - App" target="target.mlapps" target-name="Package App">
+    <param.appname>Falcon 9 - App</param.appname>
+    <param.authnamewatermark>Hamrelius, Filip</param.authnamewatermark>
+    <param.email />
+    <param.company />
+    <param.icon />
+    <param.icons />
+    <param.summary />
+    <param.description />
+    <param.screenshot>/private/var/folders/cz/2060jr5d21q5zhmzzwh8x6180000gn/T/tpabf21bff_97b7_4e94_8211_8c658e2f53bb.png</param.screenshot>
+    <param.version>2.1</param.version>
+    <param.products.name />
+    <param.products.id />
+    <param.products.version />
+    <param.platforms />
+    <param.output>${PROJECT_ROOT}</param.output>
+    <param.guid>e4ff1eaf-9380-431d-b553-01cba3dd4b1d</param.guid>
+    <unset>
+      <param.email />
+      <param.company />
+      <param.icon />
+      <param.icons />
+      <param.summary />
+      <param.description />
+      <param.products.name />
+      <param.products.id />
+      <param.products.version />
+      <param.platforms />
+      <param.output />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}/SimApp.mlapp</file>
+    </fileset.main>
+    <fileset.depfun />
+    <fileset.resources>
+      <file>${PROJECT_ROOT}/AirPlotHelpFunc.m</file>
+      <file>${PROJECT_ROOT}/Sim.m</file>
+      <file>${PROJECT_ROOT}/descendingAirDensity.m</file>
+      <file>${PROJECT_ROOT}/getThrust.m</file>
+      <file>${PROJECT_ROOT}/gravity.m</file>
+      <file>${PROJECT_ROOT}/mass.m</file>
+      <file>${PROJECT_ROOT}/massFuel.m</file>
+      <file>${PROJECT_ROOT}/plotMD.m</file>
+      <file>${PROJECT_ROOT}/rocketDynamics.m</file>
+      <file>${PROJECT_ROOT}/rocket_sim.mlx</file>
+    </fileset.resources>
+    <fileset.package />
+    <build-deliverables>
+      <file location="/Users/filiphamrelius/Desktop" name="Rocket" optional="false">/Users/filiphamrelius/Desktop/Rocket</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>/Applications/MATLAB_R2020b.app</root>
+      <toolboxes>
+        <toolbox name="neuralnetwork" />
+      </toolboxes>
+      <toolbox>
+        <neuralnetwork>
+          <enabled>true</enabled>
+        </neuralnetwork>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>true</unix>
+      <mac>true</mac>
+      <windows>false</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.16</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>maci64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>
