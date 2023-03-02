@@ -1,18 +1,21 @@
 function rocketMass = mass(fuelLeft)
- %     tankMass = 2;
- %     propellantMass = 5;
- %     masslossPerSecond = 0.5;
- %     
- %     propellantMass = propellantMass - t * masslossPerSecond;
-    rocketMass = 3900;
+
+    % Constant parameters
+    payloadToLEO = 22800;
+    payloadToGTO = 8300;
+    payloadToMARS = 4020;
+
+    firstStageRocketMass = 25600;
+    secondStageRocketMass = 3900;
+
     tankMass = 500;
-    cargo = 25000;
+    
+    % Initialize rocket mass
+    rocketMass = 0;
 
-     if (fuelLeft > 0)
-         rocketMass = rocketMass + fuelLeft + tankMass + cargo;
-
-     else % fuelLeft == 0
-         rocketMass = rocketMass - tankMass + cargo;
-     end
-
- end
+    if fuelLeft > 0
+        rocketMass = firstStageRocketMass + payloadToLEO + fuelLeft;
+    else % fuelLeft == 0
+        rocketMass = secondStageRocketMass + payloadToLEO;
+    end
+end

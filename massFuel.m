@@ -1,17 +1,15 @@
-function [m_fuel] = massFuel(t)
-% Input: time t in seconds
-% Output: fuel mass in kg
+function [fuelMass] = massFuel(elapsedTime)
 
     % Constant parameters
-    m_initial = 25000; % initial fuel mass in kg
-    burn_rate = 1451.496; % fuel burn rate in kg/s
-    
-    % Calculate fuel mass
-    m_fuel = m_initial - burn_rate;
-    
-    % Check for negative mass
-    if m_fuel < 0
-        m_fuel = 0;
-    end
+    firstStagePropellantMass = 395700;
 
+    burnRate = 1451.496; % fuel burn rate in kg / s
+
+    % Calculate fuel mass
+    fuelMass = firstStagePropellantMass - burnRate * elapsedTime;
+
+    % Check for negative mass
+    if fuelMass < 0
+        fuelMass = 0;
+    end
 end

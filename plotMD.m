@@ -27,7 +27,7 @@ function [] = plotMD(y,t)
      u = zeros(1,561);
 
     for i=1:temp
-        u(1,i) = getThrust(y(i,3));
+        u(1,i) = getThrust(y(i,3),t);
     end
     
     % Gravity
