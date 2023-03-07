@@ -88,15 +88,15 @@ function [] = plotMD(y,t)
     grid on
     hold off 
     
-    %subplot(4,3,[3,6]);  
-    %ani7=animatedline('Color','m','LineWidth',15);
-    %title("Trajectory 3D")
-    %xlabel("Y")
-    %ylabel("X")
-    %zlabel("Height, m")
-    %grid on
-    %view(3);
-    %hold off 
+    subplot(4,3,[3,6]);  
+    ani7=animatedline('Color','m','LineWidth',15);
+    title("Trajectory 3D")
+    xlabel("Y")
+    ylabel("X")
+    zlabel("Height, m")
+    grid on
+    view(3);
+    hold off 
     
     %subplot(4,3,[9,12]);  
     %ani8=animatedline('Color','m','LineWidth',15);
@@ -125,12 +125,16 @@ function [] = plotMD(y,t)
     
 for i = 1:length(y)
     
+    %addpoints(ani1,t(i),y(i,1)); X/Y-led, alltid noll nu.
     hold on
-    addpoints(ani1,t(i),y(i,3));
+    %addpoints(ani1,t(i),y(i,2));
+    addpoints(ani1,t(i),y(i,6));
     hold off 
     
+    %addpoints(ani2,t(i),y(i,4));
     hold on
-    addpoints(ani2,t(i),y(i,6));
+    %addpoints(ani2,t(i),y(i,5));
+    addpoints(ani2,t(i),y(i,3));
     hold off
     
     addpoints(ani3,t(i),q(i));

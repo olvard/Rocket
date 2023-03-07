@@ -18,7 +18,7 @@ function dy = rocketDynamics(t, y)
     dy(1) = y(4); % x velocity
     dy(2) = y(5); % y velocity
     dy(3) = y(6); % z velocity
-    dy(4) = (Fthrust * sin(theta) * cos(phi) - Fdrag * y(4)) / m; % x acceleration
-    dy(5) = (Fthrust * sin(theta) * sin(phi) - Fdrag * y(5)) / m; % y acceleration
-    dy(6) = (Fthrust * cos(theta) - Fdrag * y(6) - m * g) / m; % z acceleration
+    dy(4) = (Fthrust * sin(theta) * cos(phi) - Fdrag) / m; % x acceleration
+    dy(5) = (Fthrust * sin(theta) * sin(phi) - Fdrag ) / m; % y acceleration
+    dy(6) = (Fthrust * cos(theta) - Fdrag - m * g) / m; % z acceleration
 end
