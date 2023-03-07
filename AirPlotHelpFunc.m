@@ -1,13 +1,13 @@
 function Fdrag = AirPlotHelpFunc(y)
 
-    Cd = 0.5; % Drag coefficient
-    A = 17; % Reference area of the rocket
+    Cd = 0.5;
+    A = 17; 
     
     rho = descendingAirDensity(y(3));
     
-    v = sqrt(y(4)^2 + y(5)^2 + y(6)^2); % Velocity
+    v = sqrt(y(4)^2 + y(5)^2 + y(6)^2);
     
-    Fdrag = 0.5 * Cd * A * rho * v^2; % Drag force on the rocket
+    Fdrag = 0.5 * Cd * A * rho * v^2;
     
 end
 

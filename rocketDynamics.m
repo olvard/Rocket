@@ -1,4 +1,3 @@
-% Define function for rocket dynamics
 function dy = rocketDynamics(t, y)
     g = gravity(y(3)); % Acceleration due to gravity
     m = mass(massFuel(t)); % Mass of the rocket

@@ -88,26 +88,8 @@ function [] = plotMD(y,t)
     grid on
     hold off 
     
-    %subplot(4,3,[3,6]);  
-    %ani7=animatedline('Color','m','LineWidth',15);
-    %title("Trajectory 3D")
-    %xlabel("Y")
-    %ylabel("X")
-    %zlabel("Height, m")
-    %grid on
-    %view(3);
-    %hold off 
-    
-    %subplot(4,3,[9,12]);  
-    %ani8=animatedline('Color','m','LineWidth',15);
-    %title("Trajectory 2D")
-    %xlabel("X")
-    %ylabel("Height, m")
-    %grid on
-    %hold off 
-    
     subplot(4,3,10);  
-    ani9=animatedline('Color','m','LineWidth',3);
+    ani7=animatedline('Color','m','LineWidth',3);
     title("Time step iterations")
     xlabel("Amount of iterations")
     yticklabels({'',''})
@@ -116,7 +98,7 @@ function [] = plotMD(y,t)
     hold off 
     
     subplot(4,3,11);  
-    ani10=animatedline('Color','m','LineWidth',3);
+    ani8=animatedline('Color','m','LineWidth',3);
     title("Fuel change over time")
     xlabel("Seconds")
     ylabel("KG")
@@ -144,17 +126,11 @@ for i = 1:length(y)
     
     addpoints(ani6,t(i),G(3));
     hold off
-    
-    %addpoints(ani7,y(i,1), y(i,2), y(i,3));
-    %hold off
-    
-    %addpoints(ani8,y(i,2), y(i,3));
-    %hold off
-    
-    addpoints(ani9,t(i), 1);
+
+    addpoints(ani7,t(i), 1);
     hold off
     
-    addpoints(ani10,t(i), n(i));
+    addpoints(ani8,t(i), n(i));
     hold off
     
     drawnow
