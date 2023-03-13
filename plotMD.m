@@ -41,7 +41,7 @@ function [] = plotMD(y,t)
     set(gcf, 'Position', get(0, 'Screensize'));
     set(gcf,'name','Falcon 9 - Rocket Simulation','NumberTitle','off')
     
-    subplot(4,3,1);
+    subplot(4,2,1);
     ani1=animatedline('Color','m','LineWidth',3);
     xlabel("Position")
     ylabel("m")
@@ -49,7 +49,7 @@ function [] = plotMD(y,t)
     grid on
     hold off
 
-    subplot(4,3,2);
+    subplot(4,2,2);
     ani2=animatedline('Color','m','LineWidth',3);
     xlabel("Velocity")
     ylabel("m/s")
@@ -57,7 +57,7 @@ function [] = plotMD(y,t)
     grid on
     hold off 
 
-    subplot(4,3,4);
+    subplot(4,2,3);
     ani3=animatedline('Color','m','LineWidth',3);
     xlabel("Seconds")
     ylabel("N")
@@ -65,7 +65,7 @@ function [] = plotMD(y,t)
     grid on
     hold off 
 
-    subplot(4,3,5);
+    subplot(4,2,4);
     ani4=animatedline('Color','m','LineWidth',3);
     xlabel("Seconds")
     ylabel("KG")
@@ -73,7 +73,7 @@ function [] = plotMD(y,t)
     grid on
     hold off 
     
-    subplot(4,3,7);
+    subplot(4,2,5);
     ani5=animatedline('Color','m','LineWidth',3);
     xlabel("Seconds")
     ylabel("Thrust")
@@ -81,14 +81,14 @@ function [] = plotMD(y,t)
     grid on
     hold off 
     
-    subplot(4,3,8);
+    subplot(4,2,6);
     ani6=animatedline('Color','m','LineWidth',3);
     xlabel("Seconds")
     title("Gravitional pull")
     grid on
     hold off 
     
-    subplot(4,3,10);  
+    subplot(4,2,7);  
     ani7=animatedline('Color','m','LineWidth',3);
     title("Time step iterations")
     xlabel("Amount of iterations")
@@ -97,7 +97,7 @@ function [] = plotMD(y,t)
     grid on
     hold off 
     
-    subplot(4,3,11);  
+    subplot(4,2,8);  
     ani8=animatedline('Color','m','LineWidth',3);
     title("Fuel change over time")
     xlabel("Seconds")
